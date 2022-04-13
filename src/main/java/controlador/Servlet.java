@@ -16,7 +16,6 @@ import modelo.negocio.GestorUsuario;
 public class Servlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServerException, IOException {
 		GestorUsuario gu = new GestorUsuario();
 		JSONObject json = new JSONObject();
@@ -33,6 +32,7 @@ public class Servlet extends HttpServlet{
 		}
 		
 		response.setContentType("application/JSON;charset=UTF-8");
+
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServerException, IOException{

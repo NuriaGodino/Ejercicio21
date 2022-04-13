@@ -29,11 +29,17 @@ public class GestorUsuario {
 	}
 
 	public boolean login(String user, String pass) {
-		if(daoUsuario.buscarPorUsuario(user).getUser().equals(user) && daoUsuario.buscarPorUsuario(user).getPass().equals(pass)) {
-			return true;
-		}else {
+		Usuario usuario = daoUsuario.buscarPorUsuario(user);
+		if(usuario.getUser() == null && usuario.getPass() == null) {
 			return false;
+		}else {
+			if(usuario.getUser().equals(user) && usuario.getPass().equals(pass)) {
+				return true;
+			}else {
+				return false;
+			}
 		}
+
 	}
 
 	public List<Usuario> listar() {
