@@ -23,6 +23,8 @@ public class Servlet extends HttpServlet{
 		String user = request.getParameter("user"); //los parametros que metemos en la query
 		String pass = request.getParameter("pass");
 		
+		response.addHeader("Access-Control-Allow-Origin", "*");
+		
 		if(gu.login(user, pass)) {
 			json.put("validado", true); //introducimos el valor
 			response.getWriter().write(json.toString()); //Escribimos la respuesta
